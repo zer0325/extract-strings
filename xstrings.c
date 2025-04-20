@@ -34,7 +34,7 @@ int main()
 
 int isdelimeter(char c)
 {
-    char *delimeters = "!\"#$%&\'\()*+`./:;<=>\?@[\\](\\.)^_{|}~,";
+    char *delimeters = "!\"#$%&\'\()*+`./:;<=>\?@[\\](\\.)^{|}~,";
 
     if (strchr(delimeters,c) != NULL || isspace(c))
 	return TRUE;
