@@ -5,32 +5,46 @@
 #define MAXLENGTH 1000
 
 int isdelimeter(char c);
+int getStrings (char s[]);
 enum boolean {FALSE, TRUE};
 
 int main()
 {
+
     char str[MAXLENGTH];
-    int c, i;
+
+    while(getStrings(str) != EOF) {
+	/* Disregard single character strings.
+	 * Note that single character strings las a length of 2 */
+	if (strlen(str) > 2)
+	    printf("%s\n", str);
+    }
+
+    return 0;
+
+}
+
+int getStrings(char s[])
+{
+    int c, i = 0;
 
     while((c = getchar()) != EOF) {
 	// Read another character if the current character is one of the
 	// delimit characters.
 	if(!isdelimeter(c)) {
-	    i = 0;
-	    str[i] = c;
+	    s[i] = c;
 	    //continue reading until the character is one of the delimit
 	    //characters
 	    for (i = 1; (c = getchar()) != EOF && !isdelimeter(c); ++i)
-		str[i] = c;
-	    str[i] = '\0';
-	    if (strlen(str) > 1) /* do not print single character string */
-		printf("%s\n", str);
-	    if (c == EOF)
-		return 0;
+		s[i] = c;
+	    s[i] = '\0';
+	    return i;
 	}
     }
-    return 0;
+    return EOF;
 }
+
+
 
 int isdelimeter(char c)
 {
