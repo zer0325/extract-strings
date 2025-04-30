@@ -2,7 +2,7 @@
 #include <ctype.h>
 #include <string.h>
 
-#define MAXLENGTH 5000
+#define MAXLENGTH 40000
 
 int isdelimeter(char c);
 int getStrings (char s[]);
